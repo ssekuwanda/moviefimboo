@@ -1,0 +1,58 @@
+{% url 'home' as home_url %}
+{% url 'movies' as movies_url %}
+{% url 'series' as series_url %}
+{% url 'makepayment' as makepayment_url %}
+{% load static %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+{% endblock %}
+{% block content %}
+<div id="navbar-1">
+    {% if user.is_staff %}
+    <a href="{% url 'gen_code' %}" class="brand">movie<span class="mill">f<span class="i">i</span>mbo
+        <img style="width:20px; height: 20px; margin-top: -20px; margin-left: -9px;" src="/static/images/star.png" alt="" style="size:90px;">
+    </a></span>
+    {% else %}
+    <a href="{% url 'home' %}" class="brand">movie<span class="mill">f<span class="i">i</span>mbo</a></span>
+    {% endif %}
+        <div class="topnav-right">
+            {% if user.is_authenticated %}
+                {% include 'account.html' %}
+            {% else %}
+                <a href="{% url 'login' %}" style="padding: 4px;" ><div class="label label-primary label-outlined">Log In</div></a>
+                <a href="{% url 'signup' %}" style="padding: 4px;" ><div class="label label-inverse label-outlined">Sign up</div></a>
+            {% endif %}
+        </div>
+    </div>
+    
+    <div id="navbar">
+        <div id="nav2"> 
+            <a {% if request.path == home_url %} class="active" {% endif %} href="{{ home_url }}">Home</a>
+            <a {% if request.path == movies_url %} class="active" {% endif %} href="{% url 'movies' %}">Movies</a>
+            <a {% if request.path == series_url %} class="active" {% endif %} href="{% url 'series' %}">Series</a>
+            {% if user.is_authenticated %}
+            <a {% if request.path == makepayment_url %} class="active" {% endif %} href="{% url 'makepayment' %}" class="pay">Pay</a>
+            <a href="#">Help</a>
+            {% endif %}
+           
+        </div>
+    </div>
+    
+    <script>
+    
+        window.onscroll = function() {myFunction()};
+    
+        var navbar = document.getElementById("navbar");
+        var sticky = navbar.offsetTop;
+    
+        function myFunction(){
+            if (window.pageYOffset >= sticky) {
+                navbar.classList.add("sticky")
+            } else {
+                navbar.classList.remove("sticky");
+            }
+        }
+        
+    </script>
+{% endblock %}

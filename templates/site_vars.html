@@ -1,0 +1,5 @@
+{% for sites in site %}
+{% if sites.back_ground_image1 %}
+  style="background: url({{ sites.back_ground_image1.url }})fixed; -webkit-background-size:cover; -moz-background-size:cover; -o-background-size:cover; background-size:cover;"
+{% endif %}
+{% endfor %}

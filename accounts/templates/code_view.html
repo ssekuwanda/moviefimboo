@@ -1,0 +1,21 @@
+{% extends 'base_accounts.html' %}
+
+{% block content %}
+  <div class="row justify-content-center m-1" style="height:450px;">
+    <div class="col-lg-4 col-md-6 col-sm-8">
+      <div class="card" style="margin-top:110px;">
+        <div class="card-body">
+            <div class="row">
+                <h1 class="m-3 p-3" style="font-size: 65px; font-family: monospace;">{{ code.code }}</h1>
+            </div>
+        </div>
+      </div>
+      <div class="text-center py-2">
+      </div>
+      <div class="row container">
+        <a class="btn btn-danger mr-2" href="{% url 'home' %}" role="button">Home</a>
+        <a class="btn btn-danger btn-outline-info" href="{% url 'logout' %}" role="button">Signout</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

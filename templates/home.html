@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block stylesheet %}
+  <link rel="stylesheet" href="{% static 'css/movie.css' %}">
+{% endblock stylesheet %}
+
+  
+{% block content %}
+{% include 'nav_bar.html' %}
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-success rounded-0 alert-dismissible" role="alert">
+        <p class="mb-0" style="font-size:15px;">{{ user.username|title }} your payment of Ugx <span style="color: red;">{{ message|intcomma  }}</span> was successfull</p>
+    </div>
+  {% endfor %}
+{% endif %}
+
+ <h6 class="category">LATEST MOVIES</h6>
+  <div class="row">
+    {% for movie in movies %}
+      <div class="col-0">
+        <a href="{% url 'movie_detail' movie.slug %}">
+          <div class="card border-0">
+            {% if movie.cover_image %}
+              {% if movie.translated %}
+                <span class="notify-badge">Trans</span>
+              {% endif %}
+            <img class="card-img-top" src="{{ movie.cover_image.url }}" alt={{ movie.name|truncatechars:13 }}>
+            {% endif %}
+            <div class="card-body">
+                <span class="card-text">
+                    <p class="title"> <strong>#{{ movie.name|title }}</strong> </p>
+                      <small>
+                        {{ movie.tags.all|join:"," }}
+                      </small>
+                </span>
+            </div>
+          </div>
+        </a>
+      </div>
+    {% endfor %}  
+  </div>
+
+  <h6 class="category">LATEST SERIES</h6>
+  <div class="row">
+      {% for serie in series %}
+        <div class="col-0">
+          <a href="{% url 'serie_detail' serie.slug %}">
+            <div class="card border-0">
+              {% if serie.cover_image %}
+                {% if serie.translated %}
+                  <span class="notify-badge">Trans</span>
+                {% endif %}
+              <img class="card-img-top" src="{{ serie.cover_image.url }}" alt="Card image cap">
+              {% endif %}
+              <div class="card-body">
+                  <span class="card-text">
+                      <p class="title">#{{ serie.name|title }}</p>
+                      <p class="views"> 
+                        <small>
+                            {{ serie.tags.all|join:", "}}
+                        </small> 
+                      </p>
+                  </span>
+              </div>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+    <hr>
+  {% include 'footer.html' %}
+{% endblock %}

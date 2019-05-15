@@ -1,0 +1,8 @@
+django
+gunicorn
+django-decouple
+django-widgets-improved
+requests
+pillow
+whitenoise
+django-taggit

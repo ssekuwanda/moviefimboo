@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block stylesheet %}
+  <link rel="stylesheet" href="{% static 'css/movie_detail.css' %}">
+{% endblock stylesheet %}
+
+{% block script %}
+<script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+{% endblock script %}
+
+{% block content %}
+{% include 'nav_bar.html' %}
+  <div class="container">
+    <br>
+    <div class="card card-price">
+            <div class="card-header">
+                {{ movies|upper }}
+            </div>
+            {% if movies.cover_image %}
+              <img src="{{ movies.cover_image.url }}" class=" card-img img-responsive" style="background-color: rgb{{bg_color}};">
+              {% if movies.translated %}
+              <span class="notify-badge">Translated</span>
+              {% endif %}
+            {% endif %}
+        <div class="card-body">
+          <ul class="details">
+            <li> {{ movies.story_line }}</li>
+            <li>
+              {% for tag in movies.tags.all %}
+                <span class="badge badge-pill badge-info">{{ tag }}</span>
+              {% endfor %}
+            </li>
+            <li>{% if movies.file %} {{ movies.file.size|filesizeformat}}s {% endif %}</li>
+          </ul>
+          <table class="table">
+              <a href="{% url 'movie_download' movies.slug %}" class="btn btn-primary btn-sm btn-block active" id="downloadButton" role="button" aria-pressed="true">DOWNLOAD</a>
+          </table>
+          <div class="alert alert-success rounded-0 alert-dismissible" id="downloadAlert" role="alert">
+              <p class="mb-0" style="font-size:15px; color: red;">Downloading...</p>
+          </div>
+        </div>
+        <div class="card-footer text-muted d-flex justify-content-center">
+            <div style="padding-top: 4px;">Each movie costs <span class="badge badge-pill badge-warning">Ugx {{movie_price|intcomma }}</span> on download <a href="{% url 'movie_detail' movies.slug %}">|Refresh money</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <h6 class="text-white mb-0 d-flex justify-content-center" >Similar to {{movies.name|title }}: </h6>
+        <div class=" recommended row d-flex justify-content-center">
+          {% for movie in similar_movies %}
+          <div class="m-2" style="height: 90px; width: 90px;">
+            <a href="{% url 'movie_detail' movie.slug %}">
+              <img class="mh-100" style="width: 100px; height: 90px; border-radius: 5px;" src="{{ movie.cover_image.url }}">
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+    </div>
+    <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+    <script>
+      $("#downloadAlert").hide();
+      $("#downloadButton").click(function(){
+        $("#downloadAlert").show();
+      });
+    </script>
+    {% include 'footer.html' %}
+{% endblock %}

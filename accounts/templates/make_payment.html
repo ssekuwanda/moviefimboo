@@ -1,0 +1,35 @@
+{% extends 'base_accounts.html' %}
+{% load static %}
+
+{% block title %}Payment{% endblock %}
+{% include 'nav_bar.html' %}
+{% block content %}
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10 col-sm-12 mt-3">
+      <div class="card">
+        <div class="card-body pt-0">
+          <h3 class="card-title text-center m-2 payment-title"><span class="badge badge-secondary">Payment Code</span></h3>
+          <form method="post" novalidate>
+              {% csrf_token %}
+              {% include 'includes/form.html' %}
+              <div class="row">
+                <div class="col-6"><button type="submit" class="btn btn-primary btn-block">Pay</button></div>
+                <div class="col-6"><a href="{% url 'home' %}" class="btn btn-outline-dark btn-block" role="button" aria-pressed="true">Never mind</a></div>
+              </div>
+              
+            </form>
+          <!-- <h3 class="card-title text-center m-2 payment-title"><span class="badge badge-secondary">Mobile Money</span></h3> -->
+          <!-- <span class="badge badge-pill badge-danger">Coming Soon !!</span>
+          <img class="img-fluid" src="{% static 'images/mobile_money.jpg' %}" alt="">
+          <form method="post" novalidate>
+            {% csrf_token %}
+            {% include 'includes/form.html' %}
+            <button type="submit" class="btn btn-primary btn-block" disabled>Pay</button>
+          </form>
+        </div>
+        <div class="card-footer text-muted text-center">
+          After Paying, please wait for a notification to enter your PIN and approve the Mobile Money Transaction.        </div>
+      </div> -->
+    </div>
+  </div>
+{% endblock %}

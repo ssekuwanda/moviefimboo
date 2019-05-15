@@ -1,0 +1,9 @@
+
+{% if tag.slug %}
+  TAGGED 
+  <span class="badge badge-pill badge-danger">{{ tag|join:" " }}</span>
+{% else %}
+  {% for tagged in tag %}
+    <a href="{% url 'movies_by_slug' tagged.slug  %}" class="badge badge-pill badge-danger">{{ tagged|join:" " }}</a>
+  {% endfor %}
+{% endif %}

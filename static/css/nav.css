@@ -1,0 +1,184 @@
+@font-face {
+    font-family: 'IBM';
+    src: url('../fonts/ibm-plex-sans/IBMPlexSans-Regular.ttf');
+}
+
+body {
+    margin: 0;
+    font-size: 28px;
+    font-family: IBM;
+}
+
+.header {
+    padding: 19px;
+    text-align: left;
+    font-size: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+
+}
+
+#navbar-1 a.brand {
+    padding-bottom: 2px;
+    padding-top: 12px;
+    padding-right: 6px;
+    padding-left: 6px;
+    line-height: 80%;
+    font-size: 20px;  
+}
+
+.mill {
+    font-weight: bold;
+}
+
+#navbar-1 a.brand span.i {
+    color: rgb(255, 0, 0);
+    position: relative;
+}
+
+#navbar-1 a.brand span.i:before {
+    content: "ı";
+    position: absolute;
+    color: black;
+}
+
+#navbar {
+    padding-top: 3px;
+    overflow: hidden;
+    background-color: #f8f8f8;
+    opacity: .9;
+    box-sizing: border-box;
+    float: none;
+    line-height: 14px;
+    font-size: 9px;
+}
+
+#navbar ul{
+    list-style-type: none;
+    display: inline;
+    list-style: none;
+    margin: 1px;
+    display: inline-block;
+    /* align: center; */
+
+}
+
+#navbar li {
+    margin-left: 15px;
+    text-align: center;
+    display: inline-block;
+    text-align: center;
+    font-family: IBM;
+}
+
+#navbar-1 a {
+    float: left;
+    color: #000000;
+    text-align: center;
+    padding: 10px 16px;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+#navbar-1 {
+    overflow: hidden;
+    background-color: rgb(248, 247, 247);
+    box-sizing: border-box;
+    border-bottom-color: #000000;
+    float: none;
+    left: 50;
+    padding-top: 0px;
+    padding-bottom: 1px;
+    border-bottom:1px solid #E7E7E7;
+    width: 100%;
+    height: 43px;
+}
+
+.content {
+    padding: 16px;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 500;
+}
+
+.sticky + .content {
+    padding-top: 60px;
+}
+
+#nav2 {
+    display: inline-block; 
+    text-align: center; 
+    width: 100%;
+    overflow: hidden;
+}
+
+#nav2 a {
+    color: rgb(53, 53, 53);
+    padding: 5px 5px;
+    border: 1px solid transparent;
+    display: inherit;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    border-width: 1px;
+    border-color: #8a8a8a;
+    border-radius: 35px 35px 35px 35px;
+    font-weight: 300;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#nav2 a:hover {
+    background-color: rgb(250, 183, 183);
+}
+
+#nav2 a.active {
+    background-color: rgb(252, 0, 0);
+    border-color: rgb(252, 0, 0);
+    border-radius: 30px 30px 30px 30px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.topnav-right {
+    float: right;
+    margin-top: 0px;
+    padding-right: 2px;
+    line-height: 14px;
+}
+
+.label.label-primary.label-outlined {
+    border-color: #2196F3;
+    color: #2196F3;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 1px;
+    padding: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 12px;
+    font-weight: 400;
+    border-radius: 4px;
+}
+
+.label.label-inverse.label-outlined {
+    border-color: #2196F3;
+    background-color: #2196F3;
+    color: white;
+    border-style: solid;
+    border-width: 1px;
+    padding: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+a.pay {
+    /* background-color: rgb(114, 250, 132); */
+}

@@ -1,0 +1,23 @@
+{% load static %}
+{% load humanize %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'css/dropdown.css' %}">
+{% endblock stylesheet %}
+
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">
+        <h6 class="user-name">{{ user.username|upper }}</h6>
+    <div><small class='dropsmall badge badge-info'>UGX <span class="badge badge-danger" style="font-size: 12px; color:rgb(255, 255, 255); font-weight:bold;">{{ user.profile.acc_amount|intcomma }} </span></small></div> 
+    </button>
+    <div id="myDropdown" class="dropdown-content"s>
+        <p class="dropsmall">MY STUFF</p>
+        <a href="#">My Profile</a>
+        <a href="#">Messages</a>
+        <a href="#">Log Out</a>
+    </div>
+</div>
+
+{% block script %}
+    <script src="{% static 'js/dropdown.js' %}"></script>
+{% endblock script %}

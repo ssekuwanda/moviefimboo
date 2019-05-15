@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block stylesheet %}
+  <link rel="stylesheet" href="{% static 'css/movie.css' %}">
+{% endblock stylesheet %}
+
+  
+{% block content %}
+{% include 'nav_bar.html' %}
+{% include 'search.html' %} 
+  <h6 class="category">ALL SERIES
+    {% include 'tags.html' %}
+  </h6>
+  <div class="row">
+      {% for serie in series %}
+        <div class="col-0">
+          <a href="{% url 'serie_detail' serie.slug %}">
+            <div class="card border-0">
+              {% if serie.cover_image %}
+                {% if serie.translated %}
+                  <span class="notify-badge">Trans</span>
+                {% endif %}
+              <img class="card-img-top" src="{{ serie.cover_image.url }}" alt="Card image cap">
+              {% endif %}
+              <div class="card-body">
+                  <span class="card-text">
+                      <p class="title">{{ serie }}</p>
+                      <p class="views"> 
+                        <small>
+                            {{ serie.tags.all|join:", " }}
+                        </small> 
+                      </p>
+                  </span>
+              </div>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+    {% include 'paginator.html' %}
+{% endblock %}

@@ -1,0 +1,29 @@
+@font-face {
+  font-family: 'Lora';
+  src: url('../fonts/Lora/Lora-Italic.ttf');
+}
+
+body {
+  background-image: url(../img/minions.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  /* background-size: cover; */
+  font-family: Lora;
+}
+
+.logo {
+  font-family: Lora;
+}
+
+.logo a {
+  color: rgba(0,0,0,.9);
+}
+
+.logo a:hover,
+.logo a:active {
+  text-decoration: none;
+}
+
+.payment-title {
+  font-size: 20px;
+}

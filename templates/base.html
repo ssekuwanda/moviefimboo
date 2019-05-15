@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-grid.css' %}">
+    <title>Movie-fimbooo</title>
+    {% block stylesheet %}{% endblock stylesheet %}
+</head>
+<body>
+    {% block content %}{% endblock %}
+    {% block script %}{% endblock script %}
+</body>
+</html>
